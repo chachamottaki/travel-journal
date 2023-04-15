@@ -6,6 +6,6 @@ let router = express.Router();
 /********* API *********/
 
 //add user
-router.get('/api/user', userControllerApi.userAdd);
+router.post('/api/user', userControllerApi.userAdd);
 
 module.exports = router;

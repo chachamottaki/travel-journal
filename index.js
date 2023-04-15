@@ -3,6 +3,8 @@ let express = require('express');
 
 //Initialize the app
 let app = express();
+app.use(express.urlencoded({extended:true})); //decode body for form
+app.use(express.json()); //decode json format 
 
 //router
 let router = require('./routes');
