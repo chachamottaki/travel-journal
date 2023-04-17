@@ -1,11 +1,14 @@
 //Get an instance of the express router and set routes
 let express = require('express');
-let userControllerApi = require('./controllers/userControllerApi');
 let router = express.Router();
 
-/********* API *********/
+//import controllers
+let userControllerApi = require('./controllers/userControllerApi');
 
-//add user
-router.post('/api/user', userControllerApi.userAdd);
+
+router.post('/user', userControllerApi.addUser);
+router.get('/user/:user_id', userControllerApi.getUser);
+// router.put('/user/:user_id', userControllerApi.addUser);
+// router.delete('/user/:user_id', userControllerApi.addUser);
 
 module.exports = router;

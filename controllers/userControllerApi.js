@@ -10,3 +10,18 @@ exports.addUser = async (req, res) => {
   }
 };
 
+exports.getUser = async (req, res) => {
+  try {
+    const user = await User.findByPk(req.params.user_id);
+    if (user) {
+      res.send(user);
+    } else {
+      res.status(404).send({ message: 'User not found' });
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).send(err);
+  }
+};
+
+
