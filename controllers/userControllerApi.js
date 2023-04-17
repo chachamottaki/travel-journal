@@ -1,7 +1,12 @@
-let User = require('../models/userModel');
+const User = require('../models/userModel');
 
-exports.userAdd = (req,res) => {
-    let user = new User(req.body.id, req.body.name, req.body.age, req.body.email);
-    console.log(user)
-    res.status(200).json({"message":"success"});
-}
+exports.addUser = async (req, res) => {
+  try {
+    const user = await User.create(req.body);
+    res.status(200).send(user);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send(err);
+  }
+};
+
