@@ -39,6 +39,27 @@ exports.listEntryByLocation = async function (req, res) {
         })
 }
 
+exports.updateEntry = async (req, res) => {
+    
+    const entry = await Entry.findByPk(req.params.entry_id);
+    if (entry) {
+      await entry.update(
+        {
+          date: req.body.date,
+          location: req.body.location
+        }
+      )
+      .then(data => {
+        res.json(data);
+      })
+      .catch(err => {
+        res.status(500).json({ message: err.message })
+      })
+    } else {
+      res.status(404).send({ message: 'Entry not found' });
+    }
+};
+
 exports.deleteEntry = async (req, res) => {
     const entry = await Entry.findByPk(req.params.entry_id);
     if (entry) {

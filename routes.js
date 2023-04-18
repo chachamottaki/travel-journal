@@ -17,7 +17,7 @@ router.delete('/user/:user_id', userController.deleteUser);
 router.post('/journal/:journal_id/entry', entryController.addEntry);
 router.get('/journal/:journal_id/entry/date/:date_id', entryController.listEntryByDate);
 router.get('/journal/:journal_id/entry/location/:location_id', entryController.listEntryByLocation);
-//router.put('/journal/:journal_id/entry/:entry_id', entryController.updateEntry);
+router.put('/journal/:journal_id/entry/:entry_id', entryController.updateEntry);
 router.delete('/journal/:journal_id/entry/:entry_id', entryController.deleteEntry);
 
 //theme

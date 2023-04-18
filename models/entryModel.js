@@ -8,7 +8,7 @@ const Entry = db.define('entry', {
         allowNull: false,
         primaryKey: true
     },
-    date: { type: Sequelize.DATE, allowNull: false },
+    date: { type: Sequelize.STRING, allowNull: false },
     location: { type: Sequelize.STRING, allowNull: false },
     journal_id: { type: Sequelize.INTEGER, allowNull: false}
 })
