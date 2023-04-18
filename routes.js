@@ -15,7 +15,7 @@ router.delete('/user/:user_id', userController.deleteUser);
 //entry crud
 router.post('/journal/:journal_id/entry', entryController.addEntry);
 // router.get('/journal/:journal_id/entry', entryController.addEntry);
-// router.put('/journal/:journal_id/entry', entryController.addEntry);
-// router.delete('/journal/:journal_id/entry', entryController.addEntry);
+//router.put('/journal/:journal_id/entry/:entry_id', entryController.updateEntry);
+router.delete('/journal/:journal_id/entry/:entry_id', entryController.deleteEntry);
 
 module.exports = router;
