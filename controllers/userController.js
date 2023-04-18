@@ -32,7 +32,7 @@ exports.updateUser = async (req, res) => {
           {
             firstname: req.body.firstname,
             lastname: req.body.lastname
-          }, {where: {user_id: req.params.user_id}}
+          }
         )
         .then(data => {
           res.json(data);
