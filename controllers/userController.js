@@ -48,9 +48,7 @@ exports.updateUser = async (req, res) => {
   exports.deleteUser = async (req, res) => {
     const user = await User.findByPk(req.params.user_id);
     if (user) {
-      user.destroy(
-        { where: {user_id: req.params.user_id} }
-      )
+      user.destroy()
       .then(data => {
         res.json(data);
       })
