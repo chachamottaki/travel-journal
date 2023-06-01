@@ -21,6 +21,7 @@ router.put('/journal/:journal_id/entry/:entry_id', entryController.updateEntry);
 router.delete('/journal/:journal_id/entry/:entry_id', entryController.deleteEntry);
 
 //journal
+router.post('/journal', journalController.addJournal)
 router.get('/journal/:journal_id', journalController.getJournal); // token..
 router.post('/journal/:journal_id/theme', journalController.addTheme);
 router.put('/journal/:journal_id/theme', journalController.updateTheme);

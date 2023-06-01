@@ -8,8 +8,7 @@ const Journal = db.define('journal', {
         allowNull: false,
         primaryKey: true
     },
-    theme_id: { type: Sequelize.INTEGER, allowNull: false },
-    user_id:{ type: Sequelize.INTEGER, allowNull: false } //temp until we introduce tokens
+    theme_id: { type: Sequelize.INTEGER, allowNull: false }
 })
 
 module.exports = Journal
