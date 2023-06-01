@@ -6,7 +6,6 @@ exports.addEntry = async (req, res) => {
     try {
         const entry = await Entry.create(
             {
-                entry_id: req.body.entry_id, 
                 date: req.body.date, 
                 location: req.body.location
             }
