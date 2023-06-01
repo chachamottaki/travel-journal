@@ -8,9 +8,9 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.Journal = require('../models/journalModel');
 db.User = require('../models/userModel');
-db.Entries =  require('../models/entryModel');
+db.Journal = require('../models/journalModel');
+db.Entry =  require('../models/entryModel');
 
 // establishing the associations between the models
 
