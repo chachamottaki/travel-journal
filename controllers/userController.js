@@ -1,4 +1,5 @@
-const User = require('../models/userModel');
+const db = require('../models/index');
+const User = db.User;
 
 exports.addUser = async (req, res) => {
     try {

@@ -1,4 +1,6 @@
-const Entry = require('../models/entryModel');
+
+const db = require('../models/index');
+const Entry = db.Entry;
 
 exports.addEntry = async (req, res) => {
     try {
@@ -6,8 +8,7 @@ exports.addEntry = async (req, res) => {
             {
                 entry_id: req.body.entry_id, 
                 date: req.body.date, 
-                location: req.body.location, 
-                journal_id: req.params.journal_id
+                location: req.body.location
             }
         );
         res.status(200).send(entry);
