@@ -6,7 +6,8 @@ exports.addJournal = async (req, res) => {
   try {
       const journal = await Journal.create(
           {
-              theme_id: req.body.theme_id
+            user_id: req.params.user_id,
+            theme_id: req.body.theme_id
               
           }
       );

@@ -7,7 +7,8 @@ exports.addEntry = async (req, res) => {
         const entry = await Entry.create(
             {
                 date: req.body.date, 
-                location: req.body.location
+                location: req.body.location,
+                journal_id:req.params.journal_id
             }
         );
         res.status(200).send(entry);
