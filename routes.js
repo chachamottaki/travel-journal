@@ -21,8 +21,8 @@ router.delete('/user/:user_id',middleware.isAuthorized, userController.deleteUse
 router.post('/journal/:journal_id/entry', entryController.addEntry);
 router.get('/journal/:journal_id/entry/date/:date_id', entryController.listEntryByDate);
 router.get('/journal/:journal_id/entry/location/:location_id', entryController.listEntryByLocation);
-router.put('/journal/:journal_id/entry/:entry_id', entryController.updateEntry);
-router.delete('/journal/:journal_id/entry/:entry_id', entryController.deleteEntry);
+router.put('/journal/:journal_id/entry/:entry_id',middleware.isAuthorized, entryController.updateEntry);
+router.delete('/journal/:journal_id/entry/:entry_id',middleware.isAuthorized, entryController.deleteEntry);
 
 //journal
 router.post('/user/:user_id/journal', journalController.addJournal)
