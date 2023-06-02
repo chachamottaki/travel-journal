@@ -1,5 +1,35 @@
 const db = require('../models/index');
 const User = db.User;
+const jwt = require('jsonwebtoken');
+const jwtKey = 'my_secret_key';
+
+exports.login = async function (req, res) {
+
+  const jwtExpirySeconds = 300;
+  const { email, password } = req.body;
+
+  try {
+    // find user matching username in the DB
+    const user = await User.findOne({ where: { email } });
+    
+    // check if user already in DB or incorrect pwd 
+    if (!user || user.password !== password) {
+      return res.status(401).json({ message: "username or password incorrect" });
+    }
+
+    let payload = {id: user.iduser};
+    let token = jwt.sign(payload, jwtKey, {
+        algorithm: "HS256",
+        expiresIn: jwtExpirySeconds,
+    })
+    // Create authentication token + return it  
+    // res.cookie("token", token, { httpOnly: true, secure: true, maxAge: jwtExpirySeconds * 1000 });
+    res.json({ "token": token, "maxAge": jwtExpirySeconds * 1000 });
+  } 
+  catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
 
 exports.addUser = async (req, res) => {
     try {
@@ -59,5 +89,5 @@ exports.updateUser = async (req, res) => {
     } else {
       res.status(404).send({ message: 'User not found' });
     }
-  }
+  };
   
