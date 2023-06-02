@@ -2,16 +2,20 @@
 let express = require('express');
 let router = express.Router();
 
+// Require the middleware file with isAuthorized function: to protect routes that need authentification first
+const middleware = require('./middleware');
+
 //import controllers
 let userController = require('./controllers/userController');
 let entryController = require('./controllers/entryController');
 let journalController = require('./controllers/journalController');
 
-//user crud
+//user crud + login
+router.post('/login', userController.login);  
 router.post('/user', userController.addUser);
 router.get('/user/:user_id', userController.getUser);
-router.put('/user/:user_id', userController.updateUser);
-router.delete('/user/:user_id', userController.deleteUser);
+router.put('/user/:user_id',middleware.isAuthorized, userController.updateUser);
+router.delete('/user/:user_id',middleware.isAuthorized, userController.deleteUser);
 
 //entry crud
 router.post('/journal/:journal_id/entry', entryController.addEntry);
