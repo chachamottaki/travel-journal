@@ -9,7 +9,8 @@ const Entry = db.define('entry', {
         primaryKey: true
     },
     date: { type: Sequelize.STRING, allowNull: false },
-    location: { type: Sequelize.STRING, allowNull: false }
+    location: { type: Sequelize.STRING, allowNull: false },
+    entry: { type: Sequelize.STRING, allowNull: false }
 })
 
 module.exports = Entry

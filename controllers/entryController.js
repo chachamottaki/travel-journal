@@ -8,6 +8,7 @@ exports.addEntry = async (req, res) => {
             {
                 date: req.body.date, 
                 location: req.body.location,
+                entry:req.body.entry,
                 journal_id:req.params.journal_id
             }
         );
