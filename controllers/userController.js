@@ -9,12 +9,12 @@ exports.login = async function (req, res) {
   const { email, password } = req.body;
 
   try {
-    // find user matching username in the DB
+    // find user matching email in the DB
     const user = await User.findOne({ where: { email } });
     
     // check if user already in DB or incorrect pwd 
     if (!user || user.password !== password) {
-      return res.status(401).json({ message: "username or password incorrect" });
+      return res.status(401).json({ message: "username or password incorrect or doesn't exist" });
     }
 
     let payload = {id: user.iduser};
