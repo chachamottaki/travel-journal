@@ -14,7 +14,7 @@ db.Entry =  require('../models/entryModel');
 db.Theme = require('../models/themeModel.js');
 
 // establishing the associations between the models
-db.User.hasOne( db.Journal, { foreignKey: "user_id" });
+db.User.hasMany( db.Journal, { foreignKey: "user_id" });
 db.Entry.belongsTo( db.Journal, { foreignKey: "journal_id" });
 db.Journal.hasMany( db.Entry, { foreignKey: "journal_id" });
 db.Theme.hasMany( db.Journal, { foreignKey: "theme_id" });
