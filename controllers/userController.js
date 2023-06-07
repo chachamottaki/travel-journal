@@ -23,7 +23,6 @@ exports.login = async function (req, res) {
         expiresIn: jwtExpirySeconds,
     })
     // Create authentication token + return it  
-    // res.cookie("token", token, { httpOnly: true, secure: true, maxAge: jwtExpirySeconds * 1000 });
     res.json({ "token": token, "maxAge": jwtExpirySeconds * 1000 });
   } 
   catch (err) {
