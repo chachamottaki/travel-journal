@@ -2,8 +2,6 @@
 let express = require('express');
 let router = express.Router();
 
-// Require the middleware file with isAuthorized function: to protect routes that need authentification first
-const middleware = require('./middleware');
 
 //import controllers
 let userController = require('./controllers/userController');

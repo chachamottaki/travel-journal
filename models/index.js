@@ -17,7 +17,7 @@ db.Theme = require('../models/themeModel.js');
 db.User.hasMany( db.Journal, { foreignKey: "user_id" });
 db.Entry.belongsTo( db.Journal, { foreignKey: "journal_id" });
 db.Journal.hasMany( db.Entry, { foreignKey: "journal_id" });
-db.Theme.hasMany( db.Journal, { foreignKey: "theme_id" });
+// db.Theme.hasMany( db.Journal, { foreignKey: "theme_id" });
 
 // synchronize your Sequelize models with the database
 sequelize.sync({alter:true, force:false})

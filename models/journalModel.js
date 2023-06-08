@@ -8,7 +8,7 @@ const Journal = db.define('journal', {
         allowNull: false,
         primaryKey: true
     },
-    theme_id: { type: Sequelize.INTEGER, allowNull: false }
+    theme_id: { type: Sequelize.INTEGER, allowNull: true }
 })
 
 module.exports = Journal
