@@ -27,6 +27,6 @@ router.post('/user/:user_id/journal', journalController.addJournal)
 router.get('/user/:user_id/journals', journalController.listJournalsByUser);
 router.get('/journal/:journal_id', journalController.getJournal);
 router.post('/journal/:journal_id/theme', journalController.addTheme);
-router.put('/journal/:journal_id/theme', journalController.updateTheme);
+router.put('/journal/:journal_id', journalController.updateJournal);
 
 module.exports = router;
